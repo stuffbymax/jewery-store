@@ -1,0 +1,61 @@
+[
+    {
+        "name": "šperk položka 1",
+        "price": "150 CZK",
+        "image": "./pictures/Gnu-nano.png",
+        "category": "sperky",
+        "link": "sperky.html"
+    },
+    
+    {
+        "name": "šperk položka 2",
+        "price": "170 CZK",
+        "image": "jewelry2.jpg",
+        "category": "sperky",
+        "link": "sperky.html"
+    },
+
+    {
+        "name": "šperk položka 3",
+        "price": "200 CZK",
+        "image": "jewelr3.jpg",
+        "category": "sperky",
+        "link": "sperky.html"
+    },
+    {
+        "name": "šperk položka 4",
+        "price": "250 CZK",
+        "image": "jewelr4.jpg",
+        "category": "sperky",
+        "link": "sperky.html"
+    },
+
+    {
+        "name": "nůž položka 1",
+        "price": "150 CZK",
+        "image": "knife1.jpg",
+        "category": "noze",
+        "link": "noze.html"
+    },
+    {
+        "name": "nůž položka 2",
+        "price": "170 CZK",
+        "image": "knife2.jpg",
+        "category": "noze",
+        "link": "noze.html"
+    },
+    {
+        "name": "nůž položka 3",
+        "price": "200 CZK",
+        "image": "knife3.jpg",
+        "category": "noze",
+        "link": "noze.html"
+    },
+    {
+        "name": "nůž položka 4",
+        "price": "250 CZK",
+        "image": "knife4.jpg",
+        "category": "noze",
+        "link": "noze.html"
+    }
+]

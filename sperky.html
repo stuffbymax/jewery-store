@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šperky - ariggos</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>ariggos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sperky.html" class="active">Šperky</a></li>
+                <li><a href="noze.html">Nože</a></li>
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Kontaktujte nás</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button id="searchButton">Search</button>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Naše Kolekce Šperku</h2>
+                <p>Objevte naši exkluzivní nabídku Šperku s vynikající kvalitou a designem.</p>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2>Vybrané Šperky</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="./pictures/Gnu-nano.png" alt="Vysoce kvalitní nůž">
+                    <h3>Šperk položka 1</h3>
+                    <p>150 CZK</p>
+                </div>
+                <div class="product">
+                    <img src="jewelry2.jpg" alt="Stylový kapesní nůž">
+                    <h3>Šperk položka 2</h3>
+                    <p>170 CZK</p>
+                </div>
+                <div class="product">
+                    <img src="jewelry2.jpg" alt="Kuchyňský nůž">
+                    <h3>Šperk položka 3</h3>
+                    <p>200 CZK</p>
+                </div>
+                <div class="product">
+                    <img src="jewelry2.jpg" alt="Nůž s dřevěnou rukojetí">
+                    <h3>Šperk položka 4</h3>
+                    <p>250 CZK</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ariggos.cz MIT</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            const productContainer = document.querySelector('.products'); // Make sure this matches your HTML
+    
+            let allProducts = []; // Store products data
+    
+            // Function to display search results
+            function displayResults(products) {
+                productContainer.innerHTML = ''; // Clear current products
+    
+                if (products.length > 0) {
+                    products.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.classList.add('product');
+                        productDiv.innerHTML = `
+                            <a href="${product.link || '#'}">
+                                <img src="${product.image}" alt="${product.name}">
+                                <h3>${product.name}</h3>
+                                <p>${product.price}</p>
+                            </a>
+                        `;
+                        productContainer.appendChild(productDiv);
+                    });
+                } else {
+                    productContainer.innerHTML = '<p>No products found.</p>';
+                }
+            }
+    
+            // Fetch and store all products on page load
+            fetch('data/products.json')
+                .then(response => response.json())
+                .then(products => {
+                    allProducts = products; // Store products
+                })
+                .catch(error => console.error('Error fetching products:', error));
+    
+            // Search functionality
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.toLowerCase();
+                const filteredProducts = allProducts.filter(product => product.name.toLowerCase().includes(query));
+                displayResults(filteredProducts); // Display filtered results
+            });
+        });
+    </script>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
